@@ -31,11 +31,7 @@ const getFlightDetails = (req,res)=>{
                         // console.log(searchOptions.json.body)
                         if (!error && response.statusCode == 200) {
                           res.render("results",{data:body.body.data.itineraries});
-                        //   res.send(body.body.data.itineraries[0])
-                    //    x.departure.time
-                    //    x.departure.date
-                    //    x.departure.arrival
-
+                        //   res.send(body.body.data)
                         } else if(response.statusCode == 422){
                             res.send(response)
                             // res.render("error", {errMessage:Object.values(body.body.errors[0]).toString()})

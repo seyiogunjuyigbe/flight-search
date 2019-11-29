@@ -33,52 +33,30 @@ input[type="text"],input[type="number"], input[type="date"], select,option
 
                   
 <div class="container">
-    <form action="/flights" onsubmit="dateValidate()" method="GET">
+    <form action="/flights" onsubmit="return dateValidate()" method="GET">
                  <div class="form-row">
                       <div class="col-md-3 mb-3">
                         <label for="depCity">Departure City</label>
-                        <input type="text" class="form-control" pattern="[a-zA-Z]+" oninvalid="setCustomValidity('Please enter the city code e.g LOS. ')" style="text-transform: uppercase;"  maxlength="3" name="departure_city" id="depCity" placeholder="Departure City" required>
-                        <div class="valid-feedback">
-                          Looks good!
-                        </div>
-                        <div class="invalid-feedback">
-                                Please enter a valid city code e.g LND.
-                              </div>
+                        <input type="text" class="form-control" pattern="[a-zA-Z]+" style="text-transform: uppercase;"  maxlength="3" name="departure_city" id="depCity" placeholder="Departure City" required>
+                        
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="destCity">Destination City</label>
-                        <input type="text" class="form-control" id="destCity" pattern="[a-zA-Z]+" oninvalid="setCustomValidity('Please enter the city code e.g LOS. ')" style="text-transform: uppercase;" maxlength="3" name="destination_city" placeholder="Destination City" required>
-                        <div class="valid-feedback">
-                          Looks good!
-                        </div>
-                        <div class="invalid-feedback">
-                                Please enter a valid city code e.g LND.
-                              </div>
+                        <input type="text" class="form-control" id="destCity" pattern="[a-zA-Z]+" style="text-transform: uppercase;" maxlength="3" name="destination_city" placeholder="Destination City" required>
+                       
                       </div>
                       <div class="col-md-3 mb-3">
                         <label for="depDate">Departure Date</label>
                         <div class="input-group">
-                          
-                          <input type="date" class="form-control" id="depDate" onchange="dateValidate()" placeholder="Departure Date" name="departure_date" aria-describedby="inputGroupPrepend3" required>
-                          <div class="valid-feedback">
-                                Looks good!
-                              </div>
-                          <div class="invalid-feedback">
-                            Please choose a valid date
-                          </div>
+                        <input type="date" class="form-control" id="depDate" placeholder="Departure Date" name="departure_date" aria-describedby="inputGroupPrepend3" required>
                         </div>
                       </div>
                       <div class="col-md-3 mb-3">
                             <label for="retDate">Return Date</label>
                             <div class="input-group">
                               <input type="date" class="form-control " id="retDate" placeholder="Return Date" name="return_date" aria-describedby="inputGroupPrepend3" required>
-                              <div class="valid-feedback">
-                                    Looks good!
-                                  </div>
-                              <div class="invalid-feedback">
-                                Please choose a valid date
-                              </div>
                             </div>
+                            
                           </div>
                     </div>
                     <div class="form-row">
@@ -92,33 +70,18 @@ input[type="text"],input[type="number"], input[type="date"], select,option
                                         <option value="Business">Business</option>
                                         <option value="All">All</option>
                                     </select>
-                                    <div class="valid-feedback">
-                                      Looks good!
-                                    </div>
-                                    <div class="invalid-feedback">
-                                            Please select a cabin class.
-                                          </div>
+                                    
                                   </div>
                                   <div class="col-md-3 mb-3">
                                     <label for="numAdult">Number of Adults</label>
                                     <input type="number" class="form-control" id="numAdult" min="0" name="no_of_adult" value="0" required>
-                                    <div class="valid-feedback">
-                                      Looks good!
-                                    </div>
-                                    <div class="invalid-feedback">
-                                            Please specify number of adults
-                                          </div>
+                                   
                                   </div>
                                   <div class="col-md-3 mb-3">
                                     <label for="numChildren">Number of Children</label>
                                     <div class="input-group">
                                       <input type="number" class="form-control" min="0" id="numChildren" value="0" name="no_of_child" aria-describedby="inputGroupPrepend3" required>
-                                      <div class="valid-feedback">
-                                            Looks good!
-                                          </div>
-                                      <div class="invalid-feedback">
-                                        Please specify number of children
-                                      </div>
+                                      
                                     </div>
                                   </div>
                                   <div class="col-md-3 mb-3">
@@ -126,55 +89,74 @@ input[type="text"],input[type="number"], input[type="date"], select,option
                                         <div class="input-group">
                                           
                                           <input type="number" class="form-control" min="0" id="numInfants" value="0" name="no_of_infant" aria-describedby="inputGroupPrepend3" required>
-                                          <div class="valid-feedback">
-                                                Looks good!
-                                              </div>
-                                          <div class="invalid-feedback">
-                                            Please select number of infants
-                                          </div>
+                                          
                                         </div>
                                       </div> 
                             </div>
-                            
-
-                            
+                                          
                     <button class="btn btn-primary" style="margin: 0 auto;" type="submit">Search</button>
                   
     </div>
     
     </form>
+    
    <small style="color:#f3f3f3; padding: 1em; text-align: center"> Not sure of the city code? <a href="https://www.worldnetlogistics.com/iata-city-airport-codes/#">Click Here</a> for a list of all airport city codes </small>          
 
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 <script>
 const depDate = document.querySelector("#depDate");
 const retDate = document.querySelector("#retDate");
-function dateValidate (){
-    const today = new Date (Date.now())
-if ((new Date(`'${depDate.value}'`)) < today){
-return false;
-} else if((new Date(`'${retDate.value}'`)) < (new Date(`'${depDate.value}'`))){
-return false;
-
-}
-return true
-}
-
+const numAdult = document.querySelector("#numAdult");
+const numChildren = document.querySelector("#numChildren");
+const numInfants = document.querySelector("#numInfants");
 const depCity = document.querySelector("#depCity");
 const destCity = document.querySelector("#destCity");
+depCity.oninvalid=depCity.setCustomValidity('Please enter the city code e.g LOS. ');
+destCity.oninvalid=destCity.setCustomValidity('Please enter the city code e.g LOS. ');
+const dateValidate = ()=>{
+  var depDateValue = (new Date(`'${depDate.value}'`));
+  var retDateValue = (new Date(`'${retDate.value}'`))
+  var today = Date.now();
+      if (depDateValue < today){
+        depDate.setCustomValidity("Departure date must be equal or later than today");
+      return false;
+      } else if(retDateValue < depDateValue){
+        retDate.setCustomValidity("Arrival date must be equal or later than departure date")
+      return false;
+      }else if((depCity.value.toLowerCase()) == (destCity.value.toLowerCase())){
+        destCity.setCustomValidity("Destination and arrival cities cannot be the same")
+        return false;
+      }
+      else if(numAdult.value == 0 && numChildren.value == 0 && numInfants.value == 0){
+        numAdult.setCustomValidity("Passenger collection cannot be empty please");
+        numChildren.setCustomValidity("Passenger collection cannot be empty please")
+        numInfants.setCustomValidity("Passenger collection cannot be empty please")
+        return false;
+      }
+      resetThis([depCity,destCity,depDate,retDate,numAdult,numChildren,numInfants]);
+      return true;
+}
 
-depCity.oninput=function(event){
+const reset = (event)=>{
 	event.target.setCustomValidity('');
-	}
-depCity.onchange=function(event){
+}
+const resetThis = (els)=>{
+els.forEach((el)=>{
+  el.oninput=(event)=>{
 	event.target.setCustomValidity('');
-	}
-destCity.oninput =function(event){
+}
+  el.onchange=(event)=>{
 	event.target.setCustomValidity('');
-    }
-destCity.onchange =function(event){
-	event.target.setCustomValidity('');
-    }
+}
+})
+}
+resetThis([depCity,destCity,depDate,retDate,numAdult,numChildren,numInfants]);
 
 </script>
 

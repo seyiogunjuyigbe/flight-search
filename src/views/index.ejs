@@ -135,8 +135,7 @@ const dateValidate = ()=>{
       }
       else if(numAdult.value == 0 && numChildren.value == 0 && numInfants.value == 0){
         numAdult.setCustomValidity("Passenger collection cannot be empty please");
-        numChildren.setCustomValidity("Passenger collection cannot be empty please")
-        numInfants.setCustomValidity("Passenger collection cannot be empty please")
+        
         return false;
       }
       resetThis([depCity,destCity,depDate,retDate,numAdult,numChildren,numInfants]);

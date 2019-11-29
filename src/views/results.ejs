@@ -3,7 +3,11 @@
 #results{
   width: 80%;
   font-size: 0.9em;
+
+}
+#head{
   margin-top: 10%;
+  width: 80%;
 }
 .navbar-theme-transparent{
   background-color: #020202 !important;
@@ -17,6 +21,25 @@ li{
   list-style-type: none;
 }
 </style>
+<div id="head" class="container">
+  <div class="row">
+      <div class="col-lg-3 col-md-3">
+        <span class="text-center" style="font-weight:bold">
+           Airline
+        </span> 
+      </div>
+      <div class="col-lg-6 col-md-6">
+          
+      </div>
+      <div class="col-lg-3 col-md-3">
+          <span class="text-center" style="font-weight:bold">
+             Total Fare
+          </span> 
+        </div>
+        
+  </div>
+  <hr>
+</div>
 <% data.forEach((dat)=>{ %>
   <div id="results" class="container">
     <%  dat.origin_destinations.forEach((destination)=>{  %>

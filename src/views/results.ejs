@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>Bookify</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/lineicons.css">
+    <link rel="stylesheet" href="/css/weather-icons.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<style>
+.row{
+    width: 60%;
+    margin: 0 auto;
+    border: 1px solid #f3f3f3;
+    padding: 2em;
+}
+</style>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-inverse navbar-theme navbar-theme-abs navbar-theme-transparent navbar-theme-border" id="main-nav">
+      <div class="container">
+        <div class="navbar-inner nav">
+          <div class="navbar-header">
+            <button class="navbar-toggle collapsed" data-target="#navbar-main" data-toggle="collapse" type="button" area-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+            </a>
+          </div>
+          <div class="collapse navbar-collapse" id="navbar-main">
+           
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <span class="_desk-h">Currency</span>
+                  <b>USD</b>
+                </a>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <span class="_desk-h">Language</span>
+                </a>
+                         </li>
+              <li class="navbar-nav-item-user dropdown">
+                <a class="dropdown-toggle" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-user-circle-o navbar-nav-item-user-icon"></i>My Account
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="">Preferences</a>
+                  </li>
+                  <li>
+                    <a href="">Notifications</a>
+                  </li>
+                  <li>
+                    <a href="">Payment Methods</a>
+                  </li>
+                  <li>
+                    <a href="">Travelers</a>
+                  </li>
+                  <li>
+                    <a href="">History</a>
+                  </li>
+                  <li>
+                    <a href="">Bookmarks</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+  <div class="container">
+
+    <div class="row">
+      <%data[0].origin_destinations[0].segments.forEach((segment)=>{ %>
+
+        <div class="col-lg-3 col-md-3">
+            <p><%=segment.operating_airline.name%></p>
+        </div>
+        <div class="col-lg-6 col-md-6" style="border-right:0.1px solid #f2f2f2;">
+           <p class="text-left">Point 1</p>
+           
+        </div>
+     <% }) %>
+
+        <div>
+                <div class="col-lg-3 col-md-3">
+                        <p class="text-center"><span style="text-decoration:line-through;text-decoration-style:double">N</span><%=data[0].pricing.total_fare%></p>
+                    </div>
+        </div>
+    </div>
+  </div>
+    
